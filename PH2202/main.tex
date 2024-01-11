@@ -1,0 +1,51 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[dutch]{babel}
+\usepackage{amsmath, amssymb,physics}
+\usepackage{preamble}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+\title{PH2202: Thermal Physics}
+\begin{document}
+\maketitle
+    \newpage
+    \tableofcontents
+    \newpage 
+    \section{Introduction}
+    The course introduces us to the fundamentals of thermal physics and will end with statistical
+    physics. 
+    
+    \section{Internal energy of Ideal Gas}
+    We use some elementary equations already taught in CH1201. We will be using the ideal gas 
+    equation and the $1^{st}$ Law of Thermodynamics. 
+    \begin{align*}
+        PV &= NRT \\ 
+        dU &= TdS - pdV + \mu dN
+    \end{align*}
+    We assume the fact that the internal energy of the system, something we will define later,
+    depends on the variables entropy(S), volume(V) and no of moles(N). The first term of equation
+    2 above change in heat energy $dQ = TdS$ and work done on the system $dW = -PdV$ and 
+    chemical potential $\mu dN$. 
+    \begin{align*}
+        dU &= \pdv{U}{S}dS - \pdv{U}{V}dV + \pdv{U}{N}dN \\ 
+        \tag{Comparing this to the first law} 
+        T &= \pdv{U}{S}dS\\ 
+        P &= - \pdv{U}{V}dV \\ 
+        \mu &= \pdv{U}{N}dN 
+    \end{align*}
+    The chemical potential is a new term added in this course. %definition to added here:
+    So chemical potential essentially refers to the change in internal energy on adding or 
+    subtracting a molecule. Essentially when we add an infinitesimally small number of molecules
+    say dN, we have the chemical potential term to be $\mu dN$.\\[5]
+    \fbox{Goal: We need to find a closed form expression for the internal energy of an ideal gas}
+    \\[5]
+    We introduce one more equation into solving for the closed form expression i.e. the 
+    equipartition of energy.
+\end{document}
