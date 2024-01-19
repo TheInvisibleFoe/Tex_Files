@@ -1,11 +1,13 @@
 \documentclass[a4paper]{article}
 
 \usepackage[utf8]{inputenc}
+\usepackage{mlmodern}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage[dutch]{babel}
 \usepackage{amsmath, amssymb,physics}
 \usepackage{preamble}
+\usepackage{hyperref}
 \usepackage{transparent}
 \newcommand{\incfig}[1]{%
     \def\svgwidth{\columnwidth}
@@ -20,7 +22,8 @@
     \newpage 
     \section{Introduction}
     The course introduces us to the fundamentals of thermal physics and will end with statistical
-    physics. 
+    physics. The instructor for this course is Dr. Koushik Datta. The recommended reading for this
+    course is "Heat and Thermodynamics" by Zemansky and Dittman.
     
     \section{Internal energy of Ideal Gas}
     We use some elementary equations already taught in CH1201. We will be using the ideal gas 
@@ -43,8 +46,13 @@
     The chemical potential is a new term added in this course. %definition to added here:
     So chemical potential essentially refers to the change in internal energy on adding or 
     subtracting a molecule. Essentially when we add an infinitesimally small number of molecules
-    say dN, we have the chemical potential term to be $\mu dN$.\\[5]
-    \fbox{Goal: We need to find a closed form expression for the internal energy of an ideal gas}
+    say dN, we have the chemical potential term to be $\mu dN$.%\\[5]
+    
+    \begin{problem}
+      We need to find a closed form expression of the internal energy of an ideal gas in terms 
+      of its state variables
+    \end{problem}
+
     \\[5]
     We introduce one more equation into solving for the closed form expression i.e. the 
     equipartition of energy.
@@ -58,5 +66,5 @@
         \Rightarrow \ln (U) = \frac{2S}{3NR}+ f(V,N) \\ 
         \tag{Putting this in the ideal gas equation}
     \end{align*}
-
+    So we now need to obtain the function \(f\). For this again we will use a different    
 \end{document}
