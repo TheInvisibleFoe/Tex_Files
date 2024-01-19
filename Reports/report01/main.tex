@@ -1,0 +1,45 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mlmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[dutch]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{preamble}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+\title{Diffraction Grating}
+\begin{document}
+\maketitle
+% \paragraph{\entering Aim}
+\renewcommand{\abstractname}{Aim}
+\begin{abstract}
+    In this experiment we first find the distance between slits ina diffraction grating first 
+    using a LASER of known wavelength. Then we use that data to calculate the wavelength of 
+    another LASER using the previously calculated slit spacing.
+\end{abstract}
+\section{Theory}
+Diffraction is the phenomenon where the wave bends around corners 
+while interference is the phenomenon where two or more waves meet and interact. 
+The name diffraction grating is a misnomer as the the phenomenon we see here is 
+just N-slit interference rather than diffraction. What essentially we have here is a bunch 
+of very small slits spaced at a distance \(d\) to find  which is the aim of our experiment.
+
+Now we come to the phenomenon of interference. There are some important conditions that have 
+to be met for interference to occur, a concept called Coherence. Physically, it represents the 
+ability of a wave two waves to interfere. Coherence dictates visibility in the interference 
+pattern. Interference requires the interfering waves to be coherent, something that can be 
+achieved by having a constant phase relative phase difference between the interfering waves. 
+Now keeping a broader discussion of coherence, we proceed to the nice mathematics that lies
+behind interference. We will take an approach that is purely geometric in nature(Thanks Morin)
+\subsection{N-slit interference}
+First we have to address how to write a wave mathematically. A very general way is to use 
+complex exponentials, which takes care of the fact that it includes both the sine and the cosine
+components of a wave. 
+
+\end{document}
