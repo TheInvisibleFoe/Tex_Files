@@ -1,0 +1,97 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mlmodern}
+\usepackage{textcomp}
+\usepackage[dutch]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{preamble}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+\title{Probability 1}
+\begin{document}
+% \maketitle
+\input{titlepage.tex}
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This is a first course in Probability covering the following topics.
+\begin{itemize}
+  \item Basic Axioms of Probability
+  \item Random Variables
+  \item Inequalities
+\end{itemize}
+The reference we will be using is \emph{A First Course in Probability} by Sheldon Ross.
+\section{The Birthday problem}
+\begin{problem}[The Birthday Problem]
+    Given n randomly chosen people in a room, what is the probability that two people share a birthday? A similar 
+    restatement can be given that the probability that people share a birthday is above 50\%, 
+    what will be the value of n (i.e. no of people in the room)?
+\end{problem}
+A somewhat counterintuitive answer for the restatement is that we only need 23 randomly chosen 
+people in a room to get the probability of a birthday match to be above 50\%. We will actually 
+plot a graph and show the probability for n people.
+\begin{explanation}
+  The proof of the answer is quite simple. Let E be the event that two people in the n people 
+  share a birthday. Then we can easily calculate \(E^c\).
+ \begin{align*}
+     P(E^c) & = \frac{365}{365} \cdot \frac{364}{365} \cdots \frac{365-n}{365} \\ 
+            & = \frac{^{365}P_n}{365^{23}} \\ 
+     P(E) &= 1 - P(E^c)\\ 
+          &= 1- \frac{^{365}P_n}{365^{23}}
+ \end{align*}
+ If we  put n = 23  we get P(\(E^c) \approx\)  0.507 which proves our result.
+\end{explanation}
+A graph \(P(E^c)\) vs n is shown below.
+We can extend to something called the Probabilistic Pigeonhole Principle.
+\begin{theorem}[The Probabilistic Pigeonhole Principle]
+  Given n balls and m bins, and the probability that atleast two balls are in the same bin is 
+  given by the inequality:
+ \begin{align}
+     n > \frac{1}{2} + \sqrt{2m\log(\frac{1}{1-p})+\frac{1}{4}}
+ \end{align}
+\end{theorem}
+\begin{explanation}
+    We use a fairly random inequality \(e^{-x}\ge1-x \quad \forall x\in \R \).
+\end{explanation}
+\section{Axioms of Probability}
+\subsection{Definitions}
+\begin{itemize}
+    \item \emph{Random Experiment: } A random experiment is an experiment where a certain outcome
+        has no effect on other outcomes when repeated multiple times.
+    \item \emph{Mutually Exclusive: }
+    \item \emph{Exhaustive: }
+    \item \emph{Sample Space \(\Omega\): } A sample space is the set of all outcomes of a Random Experiment.
+    \item \emph{Event Space \(\epsilon\): }
+\end{itemize}
+\subsection{Axioms}
+
+
+\begin{itemize}
+    \item If \(A\in\epsilon\),then \(A^c\in\epsilon\).
+    \item \(\epsilon\) is closed under countable union.
+    \item Let $P:\epsilon\rightarrow[0,1]$ be a function st if A and B are events s.t. 
+       \(A,B\in \epsilon \) where \(A\cap B = \phi\) then 
+       \(P(A\cup B) = P(A)+P(B)\).\\ 
+       In general, if \(A_1, \dots, A_n\) are mutually exclusive, then \\ 
+       \begin{center}
+           \(P(\bigcup\limits_{i=1}^{n}A_i) = \sum\limits_{i=1}^{n}P(A_i)\)
+       \end{center}
+\end{itemize}
+\section{Run of heads}
+\section{Boole's Inequality}
+\section{Bon-Ferroni's Inequality}
+\section{Conditional Probability}
+
+\section{Monty Hall}
+
+
+
+
+\end{document}

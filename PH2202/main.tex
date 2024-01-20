@@ -6,6 +6,8 @@
 \usepackage{textcomp}
 \usepackage[dutch]{babel}
 \usepackage{amsmath, amssymb,physics}
+\pagestyle{fancy}
+\usepackage{fancyhdr}
 \usepackage{preamble}
 \usepackage{hyperref}
 \usepackage{transparent}
@@ -16,55 +18,79 @@
 \pdfsuppresswarningpagegroup=1
 \title{PH2202: Thermal Physics}
 \begin{document}
-\maketitle
+% \maketitle
+    \input{titlepage.tex}
     \newpage
     \tableofcontents
     \newpage 
-    \section{Introduction}
-    The course introduces us to the fundamentals of thermal physics and will end with statistical
-    physics. The instructor for this course is Dr. Koushik Datta. The recommended reading for this
-    course is "Heat and Thermodynamics" by Zemansky and Dittman.
-    
-    \section{Internal energy of Ideal Gas}
-    We use some elementary equations already taught in CH1201. We will be using the ideal gas 
-    equation and the $1^{st}$ Law of Thermodynamics. 
-    \begin{align*}
-        PV &= NRT \\ 
-        dU &= TdS - pdV + \mu dN
-    \end{align*}
-    We assume the fact that the internal energy of the system, something we will define later,
-    depends on the variables entropy(S), volume(V) and no of moles(N). The first term of equation
-    2 above change in heat energy $dQ = TdS$ and work done on the system $dW = -PdV$ and 
-    chemical potential $\mu dN$. 
-    \begin{align*}
-        dU &= \pdv{U}{S}dS - \pdv{U}{V}dV + \pdv{U}{N}dN \\ 
-        \tag{Comparing this to the first law} 
-        T &= \pdv{U}{S}dS\\ 
-        P &= - \pdv{U}{V}dV \\ 
-        \mu &= \pdv{U}{N}dN 
-    \end{align*}
-    The chemical potential is a new term added in this course. %definition to added here:
-    So chemical potential essentially refers to the change in internal energy on adding or 
-    subtracting a molecule. Essentially when we add an infinitesimally small number of molecules
-    say dN, we have the chemical potential term to be $\mu dN$.%\\[5]
-    
-    \begin{problem}
-      We need to find a closed form expression of the internal energy of an ideal gas in terms 
-      of its state variables
-    \end{problem}
+    \input{idealU.tex}
+   \section{The Zeroth Law}
+   In any study of something, we have to choose what properties to study or not 
+   study for our causes. The importance of context has a large role to play. We concern ourself 
+   with an effective description of the \emph{system}(defined later) we are studying. 
+   For example, in fluid dynamics we do not need to concern ourself with the individual motions 
+   of each particle of the fluid. Studying that to understand fluids would be unecessarily cumbersome.
+   Instead, what we do is that we take averages of certain properties over a certain volume to 
+   reduce the small epsilon changes that takes place in each configuration of the molecules. 
+   Here we discuss that a bit further.
 
-    \\[5]
-    We introduce one more equation into solving for the closed form expression i.e. the 
-    equipartition of energy.
-    \begin{align*}
-        U &= \frac{3}{2} NRT \\ 
-        \Rightarrow T & = \frac{2U}{3NR}\\ 
-    \end{align*}
-    \begin{align*}
-        \pdv{U}{S} = T = \frac{2U}{3NR}\\ 
-        \tag{Integrating the equation gives us.}
-        \Rightarrow \ln (U) = \frac{2S}{3NR}+ f(V,N) \\ 
-        \tag{Putting this in the ideal gas equation}
-    \end{align*}
-    So we now need to obtain the function \(f\). For this again we will use a different    
+   \subsection{Macroscopic and Microscopic points of view}
+   \subsubsection{Macroscopic POV}
+   Let's get the definition of the macroscopic POV straight of the way. Zemansky and Dittman refer
+   to the macroscopic description of the system as a \emph{few fundamental measureable} properties of 
+   the system we are trying to study.   
+
+   So we can elaborate this further. In order to get an effective description of our system for the 
+   cases of thermodynamics,
+   we do not need to consider very small changes in the microscopic description of the system. 
+   We need to select a lengthscale and a timescale for our measurements. So what we do is we only 
+   consider changes that happen within our length-scale i.e. if we have a length-scale of 1-10 
+   metres, we should not consider changes that requires something like a vernier calliper to 
+   measure. Essentially, if we do not see that small changes in a length scale smaller than this
+    affect our effective description, we should not take into account that when we consider the 
+   macroscopic definition of the system. Similarly we also choose a timescale and ignore anything 
+   that happens outside of our timescale. The choice of length and time scales are heavily dependent 
+   on the context of the study we are doing. After doing so, we move on to an important stage.
+
+   Now we have to choose some variables that both effectively describe our system effectively and 
+   can be measured by us. The point of choosing length and time scales will much more evident now.
+    The choice of macroscopic variables should be such that they do not evolve within that length 
+   or time scale. Qualita-tively we are effectively choosing variables such that our system is 
+   somewhat static over that length and time scale. Going the other way, we can also check when our
+    system is static and then check for constant quantities. 
+   \subsubsection{Microscopic POV}
+   ZD defines a microscopic description to be a description involving the internal structure of a 
+   system and then based on those assumptions calculating system wide characteristics. This will 
+   be discussed later, inevitably when we talk about Statistical mechanics later.
+   \subsubsection{Conclusion}
+   Whatever description we give be it Macroscopic or microscopic, they must eventually give the 
+   same result because they are essentially the same thing. The emergence macroscopic variables 
+   of a system is just an averaging of some microscopic variables. For example, Pressure is just 
+   averaging out the linear momenta of particles over some length and time scales.
+   \subsection{Definitions}
+   \begin{itemize}
+       \item \emph{System: } The part of the universe we are studying.
+       \item \emph{Surroundings: }The part of universe which is not the system.
+       \item \emph{Boundary: }The seperating between the system and the surroundings.
+       \item \emph{Open System: }A system where exchange of matter and energy is allowed between the system and the surroudings.
+       \item \emph{Closed System: }A system where exhange of energy is allowed but exchange of matter is not.
+       \item \emph{Isolated System: }A system where exchange of both energy and matter are not allowed.
+       \item (not a definition) We can exchange energy two ways, by heating the system and by doing mechanical work of the system.
+       \item \emph{Adiabatic Wall: }A boundary that allows no exchange of heat energy to take place.
+       \item \emph{Diathermic Wall: }A boundary that allows heat transfer, but no transfer of matter is allowed.
+       \item \emph{State of a system: }When we talk about a system, we talk about its macroscopic variables. The state of the system is the state of these variables.
+       \item \emph{Mechanical Equilibrium: }When the resultant force and torque on a system are 0, i.e. \(\sum_{i=1}^{n}F_i + \sum_{i=1}^{k}\tau_i = 0\)
+       \item \emph{Chemical Equilibrium: }When the system exhibits bo change in composition.
+       \item \emph{Thermal Equilibrium: }This will be defined much better later. For now, it is just when heat exchange stops between systems.
+       \item \emph{Thermodynamic Equilibrium: }If the system is in all of the equilibria above, then it is thermal equilibrium.
+   \end{itemize}
+   \subsection{Thermal Equilibrium and Temperature}
+   \subsubsection{The Zeroth Law}
+   
+   \section{The First Law}
+   lol
+    
+
+
+   
 \end{document}

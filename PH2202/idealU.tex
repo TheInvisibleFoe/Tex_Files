@@ -1,0 +1,120 @@
+    \section{Introduction} 
+    The course introduces us to the fundamentals of thermal physics and will end with statistical physics. The instructor for this course is Dr. Koushik Datta. 
+    The recommended reading for this course is "Heat and Thermodynamics" by Zemansky and Dittman. 
+    \subsection{Readings} 
+    \begin{itemize}
+        \item \emph{An Introduction to Thermal Physics } by D.V. Schroeder
+        \item \emph{Thermodynamics} by Enrico Fermi
+    \end{itemize}
+    
+    
+    \section{Internal energy of Ideal Gas}
+    We use some elementary equations already taught in CH1201. We will be using the ideal gas 
+    equation and the $1^{st}$ Law of Thermodynamics. 
+    \begin{align*}
+        PV &= NRT \\ 
+        dU &= TdS - pdV + \mu dN
+    \end{align*}
+    We assume the fact that the internal energy of the system, something we will define later,
+    depends on the variables entropy(S), volume(V) and no of moles(N). The first term of equation
+    2 above change in heat energy $dQ = TdS$ and work done on the system $dW = -PdV$ and 
+    chemical potential $\mu dN$. 
+    \begin{align}
+        dU &= \pdv{U}{S}dS - \pdv{U}{V}dV + \pdv{U}{N}dN \\ 
+        % \tag{Comparing this to the first law} 
+        T &= \pdv{U}{S}dS\\ 
+        P &= - \pdv{U}{V}dV \\ 
+        \mu &= \pdv{U}{N}dN 
+    \end{align}
+    The chemical potential is a new term added in this course. %definition to added here:
+    So chemical potential essentially refers to the change in internal energy on adding or 
+    subtracting a molecule. Essentially when we add an infinitesimally small number of molecules
+    say dN, we have the chemical potential term to be $\mu dN$.%\\[5]
+    
+    \begin{problem}
+      We need to find a closed form expression of the internal energy of an ideal gas in terms 
+      of its state variables
+    \end{problem}
+
+    \\[5]
+    \emph{Answer: } We introduce one more equation into solving for the closed form expression i.e. the 
+    equipartition of energy.
+    \begin{align}
+        U &= \frac{3}{2} NRT \nonumber\\ 
+        \Rightarrow T & = \frac{2U}{3NR} 
+    \end{align}
+    From here its just algebra to find the solution to the problem
+    \begin{align}
+        \pdv{U}{S} = T = \frac{2U}{3NR}\nonumber\\ 
+        % \tag{Integrating the equation gives us.}
+        \Rightarrow \ln (U) = \frac{2S}{3NR}+ f(V,N) 
+    \end{align}
+    So we now need to obtain the function \(f\). For this again we will use a different 
+    thermodynamic equality namely the ideal Gas equation.
+    \begin{align*}
+        & PV = NRT\\
+        \Rightarrow & P = \frac{NRT}{V}\\ 
+        \tag{Using (3)}
+        & \pdv{U}{V} = -P = \frac{NRT}{V} = -\frac{2U}{3V} \\ 
+        \tag{Differentiating (6)}
+        & \pdv{(\ln U)}{V} = \pdv{f}{V} \\ 
+        &\Rightarrow \frac{1}{U}\pdv{U}{V} = \pdv{f}{V}\\ 
+        \tag{Substituting the deriavtive}
+        &\Rightarrow \frac{1}{U} \qty(-\frac{2U}{3V}) = \pdv{f}{V} \\ 
+        & \Rightarrow \partial{f} = -\frac{2}{3} \frac{\partial{V}}{V} \\ 
+        \tag{Integrating}
+        & \Rightarrow f = -\frac{2}{3} \ln(V) + \ln(g(N))
+    \end{align*} 
+    Other than the fucntion g(N) we have found the closed form expression of internal energy of 
+    ideal gas which is
+    \begin{align}
+        &\ln U = \frac{2S}{3NR} - \frac{2}{3} \ln(V) + \ln(g(N)) \nonumber\\ 
+        \Rightarrow & U = g(N)V^{-2/3}\exp\qty(\frac{2S}{3NR})  
+    \end{align}
+    Now to figure out the value of g(N), we need to apply a property of the variables we are working
+    with. Now given a thermodynamic variable, it can either be intensive or extensive in nature.
+    Intensive variables or properties are such properties that do not depend on the amount of substance
+    we are measuring the variable of. For example, the melting point of a liquid is an intensive property
+    i.e. if we add more liquid, the melting point still remains the same. In contrast there are 
+    extensive properties or variable which depend on the amount of the substance taken. For example,
+    mass is a very trivial example of an extensive property. \\ 
+    So all the properties that we are dealing with here are extensive. I will try to give a motivation 
+    of why they are extensive, but the fact that a property is extensive or intensive is a purely 
+    experimental result. \\ 
+
+    We first talk about entropy, which is a concept that measures the disorder in a system. Suppose
+    you have a system A and then a system B , the disorder of the combined system will depend on the 
+    combined A and B, meaning it is not an inherent property of the substance we are taking. Same goes 
+    the case for volume. I mean if we add two systems with different volumes, their resultant volume 
+    will be the combined volume. The no of moles(N) is also an extensive property, since it is just a 
+    scaled analogy to mass. \\ 
+    Similary if we talk about the equipartition of energy, then the internal energy is directly dependent
+    on the no of moles, which makes it an extensive property. \\ 
+
+    Thus we will scale the system now where 
+    \(S\mapsto \lambda S, V \mapsto \lambda V \quad \text{and} \quad N\mapsto \lambda N \) where 
+   \(\lambda\) is some scaling factor. As a result \(U\mapsto \lambda U\). Keeping this in mind we 
+   perform the aforementioned mapping on equation (7).
+   \begin{align*}
+       U' &= g(\lambda N)(\lambda V)^{-2/3}\exp\qty(\frac{2 \lambda S}{3 \lambda NR}) \\ 
+          & = g(\lambda N) \lambda^{-2/3} V^{-2/3}\exp\qty(\frac{2S}{3NR}) \\ 
+          & = g(\lambda N) \lambda^{-2/3} \frac{U}{g(N)} \\ 
+       \Rightarrow \lambda U &=  g(\lambda N) \lambda^{-2/3} \\ 
+       \Rightarrow g(\lambda n) &= \lambda^{5/3}g(N)
+   \end{align*}
+   This is a fairly easy function equation to solve we just set N=1 and \(\lambda = N\). 
+   \begin{align}
+       \tag{where k is some constant}
+       g(N) = kN^{5/3}
+   \end{align}
+   Now plugging this equation in (7), We get our final closed form solution of the problem we want.\\
+   \begin{center}
+       \large
+       \fbox{ 
+       \begin{equation*}
+           U = kN^{5/3} V^{-2/3}\exp\qty(\frac{2S}{3NR})  
+       \end{equation*}
+       }
+   \end{center}
+   {\hfill \blacksquare}
+
