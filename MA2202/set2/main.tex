@@ -1,31 +1,17 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Welcome to Overleaf --- just edit your LaTeX on the left,
-% and we'll compile it for you on the right. If you give
-% someone the link to this page, they can edit at the same
-% time. See the help menu above for more info. Enjoy!
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\title{Math 453 HW 1}
 \documentclass[addpoints]{exam}
-
 \usepackage{amsmath,enumitem,wrapfig,amsfonts,eucal}
 \usepackage{tikz}
+\usepackage{cancel}
 \usepackage{physics,mlmodern}
 \renewcommand{\thequestionlabel}{Question{question}}
-
 \newcommand{\StudentName}{Sabarno Saha - 22MS037}
 \newcommand{\AssignmentName}{Assignment 02}
-
 \pagestyle{headandfoot}
 \runningheadrule
 \runningheader{MA2202}{\StudentName}{\AssignmentName}
 \firstpagefooter{}{}{\thepage}
 \runningfooter{}{}{\thepage}
-
 \printanswers
-
-
 \begin{document}
 
 
@@ -41,14 +27,10 @@
 \hrule
 \vspace{4pt}
 \textbf{Sabarno Saha}, \textbf{22MS037}\hfill \today
-
 \vspace{20pt}
-
 \bigskip
-
 \begin{questions}
-    \questionlabel \textbf{ Question 1}\\
-
+    \question \textbf{ Question 1}\\
 There are n boxes numbered \(1, 2, \dots , n,\) among which the \(r^{th}\) box contains \(r - 1\) white cubes
 and \(n - r\) red cubes. Suppose, we choose a box at random and we remove two cubes from it,
 one after another, without replacement.
@@ -56,22 +38,54 @@ one after another, without replacement.
     \item  Find the probability of the second cube being red.
     \item  Find the probability of the second cube being red, given that the first cube is red.
 \end{enumerate}
-
-
 \begin{solution}\\
  
 \end{solution}
-
+\newpage
 \question \textbf{ Question 2}\\
 Let \((\Omega,\mathcal{E},P)\) be a probability space and let \(A_1,A_2,\dots,A_n \in \mathcal{E}\)
 and \(P(\bigcap_{i=1}^{n}A_i)\neq 0\). Show that 
-\begin{align*}
+\begin{align}
    P(\bigcap_{i=1}^{n}A_i) = P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\dots P(A_n|\bigcap_{i=1}^{n-1}A_i)
-\end{align*}
-
+\end{align}
 \begin{solution}\\
- 
-\end{solution}
+    Note: \(P(\bigcap_{i=1}^{m}A_i) \neq 0\) as \( \bigcap_{i=1}^{n}A_i \subseteq \bigcap_{i=1}^{m}A_i\), 
+    thus \(P(\bigcap_{i=1}^{n}A_i\leq P(\bigcap_{i=1}^{m}A_i))\quad \forall m \in {1,2,\dots,n}.\)\\[5]
+    \textbf{Method 1:}  
+    We solve this by induction. \\[3] 
+    \emph{Case n=1} \\ 
+    \(P(A_1) = P(A_1)\) which is true.\\
+    \emph{Case n = 2}\\ 
+    By definition of conditional probability, we have \(P(A_1|A_2) = \dfrac{P(A_1\cap A_2)}{P(A_2)}\).\\
+    \underline{Induction Hypothesis for n=k}
+    \begin{align}
+       P(\bigcap_{i=1}^{k}A_i) = P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\dots P(A_k|\bigcap_{i=1}^{k-1}A_i)
+    \end{align}
+    We now prove this for n = k+1. Let \(\mathcal{A} = \bigcap_{i=1}^{k}A_i\). By using the definition of
+    conditional probability or the case n=2, \(P(A_{k+1}|\mathcal{A}) = \dfrac{P(A_{k+1}\cap \mathcal{A})}{P(\mathcal{A})}\).
+    \begin{align*}
+        P(\bigcap_{i=1}^{k+1}A_i) &= P(A_{k+1}\cap\mathcal{A})\\ 
+                                  &=P(A_{k+1}|\mathcal{A})P(\mathcal{A})\\
+                                  &= P(A_{k+1}|\bigcap_{i=1}^{k}A_i)P(\bigcap_{i=1}^{k}A_i)\\
+        \tag{Using Induction Hypothesis}
+                                  &=P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\dots P(A_k|\bigcap_{i=1}^{k-1}A_i)P(A_{k+1}|\bigcap_{i=1}^{k}A_i)\\ 
+                                  &=P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\dots P(A_{k+1}|\bigcap_{i=1}^{k}A_i)
+    \end{align*}
+    Thus we have proved the equation (1) \(~ \forall~ n\in\mathbb{N}\).\\[5]
+    \textbf{Method 2: }
+    Let \(B_k = \bigcap_{i=1}^{k}A_i\).
+    Then we need to prove that 
+    \begin{align*}
+        P(B_n) = P(A_1)P(A_2|A_1)P(A_3|B_2)\dots P(A_n|B_{n-1})
+    \end{align*}
+    We just use our definition of conditional probability i.e. \(P(A|B) = \dfrac{P(A\cap B)}{P(B)}\). 
+    \begin{align*}
+        P(A_1)P(A_2|A_1)P(A_3|B_2)\dots P(A_n|B_{n-1}) &= P(A_1)\frac{P(A_2\cap A_1)}{P(A_1)} \frac{P(A_3\cap B_2)}{P(B_2)}\dots \frac{P(B_n)}{P(B_{n-1})}\\ 
+                                                       &=  \cancel{P(A_1)}\frac{\cancel{P(A_2\cap A_1)}}{\cancel{P(A_1)}} \frac{\cancel{P(A_3\cap B_2)}}{\cancel{P(B_2)}}\dots \frac{P(B_n)}{\cancel{P(B_{n-1})}}\\
+                                                       &= P(B_n)\\ 
+                                                       &= P(\bigcap_{i=1}^{n}A_i)
+    \end{align*}
+\end{solution} 
 
 \question \textbf{ Question 3}\\
 Let \((\Omega,\mathcal{E},P)\) be a probability space and let \(A_1,A_2,\dots,A_n \in \mathcal{E}\)
