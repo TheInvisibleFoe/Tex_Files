@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you give
+% someone the link to this page, they can edit at the same
+% time. See the help menu above for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\title{Math 453 HW 1}
+\documentclass[addpoints]{exam}
+
+\usepackage{amsmath,enumitem,wrapfig,amsfonts,eucal}
+\usepackage{tikz}
+\usepackage{physics,mlmodern}
+\renewcommand{\thequestionlabel}{Question{question}}
+
+\newcommand{\StudentName}{Sabarno Saha - 22MS037}
+\newcommand{\AssignmentName}{Assignment 02}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{MA2202}{\StudentName}{\AssignmentName}
+\firstpagefooter{}{}{\thepage}
+\runningfooter{}{}{\thepage}
+
+\printanswers
+
+
+\begin{document}
+
+
+\par\textbf{IISER Kolkata} \hfill \textbf{Assignment 02}
+\vspace{3pt}
+\hrule
+\vspace{3pt}
+\begin{center}
+        \LARGE{\textbf{MA2202 :Probability 1}}
+\end{center}
+\vspace{3pt}
+
+\hrule
+\vspace{4pt}
+\textbf{Sabarno Saha}, \textbf{22MS037}\hfill \today
+
+\vspace{20pt}
+
+\bigskip
+
+\begin{questions}
+    \questionlabel \textbf{ Question 1}\\
+
+There are n boxes numbered \(1, 2, \dots , n,\) among which the \(r^{th}\) box contains \(r - 1\) white cubes
+and \(n - r\) red cubes. Suppose, we choose a box at random and we remove two cubes from it,
+one after another, without replacement.
+\begin{enumerate}[label = (\alph*)]
+    \item  Find the probability of the second cube being red.
+    \item  Find the probability of the second cube being red, given that the first cube is red.
+\end{enumerate}
+
+
+\begin{solution}\\
+ 
+\end{solution}
+
+\question \textbf{ Question 2}\\
+Let \((\Omega,\mathcal{E},P)\) be a probability space and let \(A_1,A_2,\dots,A_n \in \mathcal{E}\)
+and \(P(\bigcap_{i=1}^{n}A_i)\neq 0\). Show that 
+\begin{align*}
+   P(\bigcap_{i=1}^{n}A_i) = P(A_1)P(A_2|A_1)P(A_3|A_1\cap A_2)\dots P(A_n|\bigcap_{i=1}^{n-1}A_i)
+\end{align*}
+
+\begin{solution}\\
+ 
+\end{solution}
+
+\question \textbf{ Question 3}\\
+Let \((\Omega,\mathcal{E},P)\) be a probability space and let \(A_1,A_2,\dots,A_n \in \mathcal{E}\)
+be pairwise mutually exclusive. Let \(A = \bigcup_{i=1}^{\infty}A_i\) and \(B \in \mathcal{E}\)
+and \(P(B)\neq 0 \). Show that
+\begin{align}
+    P(A|B) = \sum_{i=1}^{\infty}P(A_i|B)
+\end{align}
+
+\begin{solution}\\
+ 
+\end{solution}
+
+\question \textbf{ Question 4}
+
+We are familiar with the famous Monty Hall problem. Now suppose, instead of 3 doors, there
+are n doors, only one among which has a prize behind it.
+\begin{enumerate}[label=(\alph*)]
+  \item Find the probability of winning upon switching given that Monty opens k doors. Will
+switching benefit you?
+ \item Find the probability of winning upon switching given that Monty opens maximum num-
+ber of doors. Will switching benefit you?
+    \item  Find the probability of winning upon switching given that Monty opens no doors. Will
+switching benefit you?
+\end{enumerate}
+\begin{solution}\\
+ 
+\end{solution}
+\question \textbf{ Question 5}\\
+Dropping two points uniformly at random on \([0, 1]\), the unit interval is divided into three segments.
+Find the probability that the three segments obtained in this way form a triangle.
+\begin{solution}\\
+ 
+\end{solution}
+\end{questions}
+\end{document}
