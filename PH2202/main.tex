@@ -6,6 +6,7 @@
 \usepackage{textcomp}
 \usepackage[dutch]{babel}
 \usepackage{amsmath, amssymb,physics}
+\usepackage{tcolorbox}
 \pagestyle{fancy}
 \usepackage{fancyhdr}
 \usepackage{preamble}
@@ -82,9 +83,23 @@
        \item \emph{Mechanical Equilibrium: }When the resultant force and torque on a system are 0, i.e. \(\sum_{i=1}^{n}F_i + \sum_{i=1}^{k}\tau_i = 0\)
        \item \emph{Chemical Equilibrium: }When the system exhibits bo change in composition.
        \item \emph{Thermal Equilibrium: }This will be defined much better later. For now, it is just when heat exchange stops between systems.
-       \item \emph{Thermodynamic Equilibrium: }If the system is in all of the equilibria above, then it is thermal equilibrium.
+       \item \emph{Thermodynamic Equilibrium: }If the system is in all of the equilibria above, then it is thermodynamic equilibrium.
    \end{itemize}
+   \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,arc=0mm,title=Note]
+     For all systems we talk about here, unless otherwise mentioned, are implicitly assumed to be in thermodynamic equilibrium.
+   \end{tcolorbox}
+   There is a very good reason for this assumption. In thermodynamics, we always deal with macroscopic 
+   quantities, i.e. microscopic quantities that are coarse grained. Now, if we do not have the system in 
+   thermal equilibrium, we will not have an effective description of the system using macroscopic 
+   quantities. The microscopic quantities might vary enormously, causing the macroscopic definition to 
+   not be as effective of a description as we would like.
    \subsection{Thermal Equilibrium and Temperature}
+   We now talk about the concept of thermal equilibrium and temperature. 
+   \begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Theorem]
+       Let us have a system defined 
+   by macroscopic quantities \(x,y,z\). We claim that there will exist a function \(f(x,y,z) = 0\).    
+   \end{tcolorbox}
+   
    \subsubsection{The Zeroth Law}
    
    \section{The First Law}
