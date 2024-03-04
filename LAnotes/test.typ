@@ -250,6 +250,21 @@ One small convention necessary for the next theorem. We take span$(phi.alt)$ ={0
     $
     Thus two expressions are the same. Thus we have a unique expression of $v$ using $BB$.
 ]
+#propn[
+
+  Let $VV$ be a vector space and let $S subset VV$ be an ordered set of vectors. Let $v in VV$ be any vector. Define $S' := (S,v):=(v_1,...,v_n,v)$ where $S = (v_1 ,...,v_n)$. Then we have 
+  $
+    v in #text("span") (S) <==> #text("span") (S) = #text("span") (S')
+  $
+
+]
+#proof[
+  $(==>$) Given $ v in$ span($S$) and $S' = (S,v)$ 
+]
+#propn[
+
+  Let $L = (v_1,...,v_n)$ be a linearly independent set and let $v in A$ be any vector. Then the set $L' = (L,v)$ is a linearly independent set $<==> v in.not $ span$(L)$.
+]
 = Linear  Maps 
 = Everything Eigen
 = Dual Basis
