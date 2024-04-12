@@ -136,6 +136,8 @@ We will start from the basic definitions of groups and fields, and then build up
 
   A commutative ring $(F,+,ast)$ is a field is $F^ast := (F\\{0},ast)$ is also an abelian group, where $0 in F$ is the identity operator of the group $(F,+)$
 ]<field>
+#pagebreak()
+== Deinition of a Vector Space
 Whew, that was a whole lot of jargon. Now, after the whole jiu-jitsu routine is over, we can finally define what we want to actually define what a *Vector Space* is.
 #definition("Vector Space")[\
   A vector space $VV$ is a non-empty set defined over a field $FF$ with a binary operation $+$ and a binary function $dot$ such that
@@ -251,8 +253,8 @@ One small convention necessary for the next theorem. We take span$(phi.alt)$ ={0
     Thus two expressions are the same. Thus we have a unique expression of $v$ using $BB$.
 ]
 #propn[
-
-  Let $VV$ be a vector space and let $S subset VV$ be an ordered set of vectors. Let $v in VV$ be any vector. Define $S' := (S,v):=(v_1,...,v_n,v)$ where $S = (v_1 ,...,v_n)$. Then we have 
+  
+    Let $VV$ be a vector space and let $S subset VV$ be an ordered set of vectors. Let $v in VV$ be any vector. Define $S' := (S,v):=(v_1,...,v_n,v)$ where $S = (v_1 ,...,v_n)$. Then we have 
   $
     v in #text("span") (S) <==> #text("span") (S) = #text("span") (S')
   $
@@ -263,7 +265,83 @@ One small convention necessary for the next theorem. We take span$(phi.alt)$ ={0
 ]
 #propn[
 
-  Let $L = (v_1,...,v_n)$ be a linearly independent set and let $v in A$ be any vector. Then the set $L' = (L,v)$ is a linearly independent set $<==> v in.not $ span$(L)$.
+Let $L = (v_1,...,v_n)$ be a linearly independent set and let $v in A$ be any vector. Then the set $L' = (L,v)$ is a linearly independent set $<==> v in.not $ span$(L)$.
+]
+#proof[
+  We will prove the contrapositive i.e. $v in #text("span") (L) <==> L' $is a linearly dependent set \
+  ($==>$) \ 
+  We know $v in $ span$(L)$. Thus $exists space c_1,c_2,...,c_n in FF$ s.t. 
+  $
+  & c_1v_1 + ... +c_n v_n = v \
+  & c_1v_1 + ... + c_n v_n -v =0
+  $  
+  Since coefficient of $v$ is $-1$, we have a linear relation among $L$ and $v$. $L'$ is a linearly dependent set.
+
+  ($<==$) \ 
+  $L'$ is a linearly dependent set. Thus $exists c_1,...,c_n,c_(n+1) in FF$ and  $exists c_i , c_i eq.not 0 $ s.t. 
+  $
+    c_1v_1 + ...  +c_n v_n+ c_(n+1)v_(n+1) = 0 
+  $
+  Now $c_(n+1) eq.not 0$ or $c_(n+1) eq 0$.
+
+  #underline("Case 1: ") $c_(n+1) = 0$\
+  Since $c_(n+1) = 0$, then we have 
+  $
+   c_1v_1 + ...  +c_n v_n = 0 
+  $
+  But we know that $L$ is an linearly independent set, thus $c_1 = c_2 = ... = c_n = 0$. But $exists c_i eq.not 0$. Thus $c_(n+1) eq.not 0$.
+
+  #underline("Case 2: ")$c_(n+1) eq.not 0$\ 
+  We thus have, 
+  $
+   c_1&v_1 + ...  +c_n v_n+ c_(n+1)v_(n+1) = 0 \ 
+   ==> v &= -1/c_(n+1) ( c_1v_1 + ...  +c_n v_n ) \
+   ==> v &= d_1v_1 + ...  +d_n v_n
+   $
+   Thus $v in $ span$(L)$.
+
+]
+#definition("Finite Dimensional Vector spaces")[
+
+  Every vector space $VV$ over a field $FF$, that has spanning set with a finite number of elements is called a Finite Dimensional Vector Space.
+]
+#propn[
+  
+  Let $VV$ be a finite dimensional vector spaces and let $S$ be a finite and ordered set that      spans  $VV$. Then $S$ contains a basis of $VV$.
+]
+#proof[
+
+  Let $S := {v_1,v_2 ,...,v_n}$. If $L$ is linearly independent, we are done. If not $exists $ a linear relation among the elements. Thus $exists c_1,...,c_n  in FF$ and for some  $k, c_k eq.not 0$. Thus 
+  $
+  v = -c_1/c_k v_1 - ... -c_n/c_k v_k
+  $
+  Let $S' := S\\{v_k}$. Then $v in $ span$(S')$. By propostion 3.4, span$(S) = $ span$(S') = VV$ Thus we keep repeating this process until we obtain a linearly independent list that still spans $VV$. Thus we can reduce the entire spanning set to a basis $BB$ of $VV$.
+]
+#propn[
+
+  Let $VV$ be a finite dimensional vector space. Then any linearly independent subset $L subset VV$ is extendable to a basis of $VV$.
+]
+#proof[
+  
+  We know that $VV$ is finite dimensional. $exists $ a finite set $S$ s.t. span$(S) = VV$. If $S subset L$, then we have span$(S) subset $ span$(L)$. We also have span$(L) subset VV$
+  $
+    #text("span") (S) &=VV\
+    #text("span") (L) &subset VV \
+    #text("span") (S) &subset #text("span") (L) \ 
+    ==> VV &subset #text("span") (L) 
+  $
+  Thus span$(L) = VV$. Thus $L$ is a basis $BB$.
+
+  Otherwise, span$(L) subset $ span$(S)$. Then $exists v in S space s.t. v in.not $ span$(L)$.
+  Let us then define $L' := (L,v)$. Since $v in.not $ span$(L)$, $L'$ is a linearly independent set as well by proposition 3.5. The list will terminate as we have finite dimensional spanning set, after a certain point span$(L_("new")) = VV$.
+]
+#propn[
+
+  Let $S$ and $L$ be two finite subsets of a vector space $VV$ s.t. span$(S) = VV$ and $L$ is linearly independent.Then $|L| <=  |S|$. 
+]
+#proof[
+
+  Let $|S| = m$ and $|L| =n $ and let $S:=(v_1,...,v_m)$ and $L:=(w_1,...,w_n)$
 ]
 = Linear  Maps 
 = Everything Eigen
