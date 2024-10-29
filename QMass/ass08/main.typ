@@ -11,6 +11,7 @@
     (name: " Sabarno Saha", email: "22MS037", affiliation: "IISERK"),
   ),
 )
+
 #set cite(style: "chicago-author-date")
 #show link: underline
 #let ar = [$angle.r$]
@@ -103,7 +104,7 @@
 
   #underline("Triplet States")
   $ s=1 : cases(ket(1","1) &-->E_(1,1)=1/4 J hbar^2+B hbar,ket(1","1) &--> E_(1,1)=1/4 J hbar^2 ,ket(1","-1) &--> E_(1,-1)=1/4 J hbar^2 - B hbar) $
-  
+  #figure(image("evsb.png",width : 120%), caption : [Variation of Energy eigenvalues with $B/hbar$ for both $J>0$ and $J<0$ ]) 
 ]
 #answer[
   We have $J>0, B>0$. From the plot it be can be easily seen that the state $ket(1","-1)$ crosses the state
@@ -112,7 +113,7 @@
   Before the crossing the ground state was $ket(0","0)$, which after crossing become $ket(1","-1)$. This causes 
   symmetry breaking. As we saw in Q1 $ket(0","0)$ has SU(2) symmetry, but $ket(1","-1)$ does not have 
   SU(2) symmetry. Thus the ground state no longer has SU(2) symmetry.
-
+]
   #answer[
     If we take $J<0$, as shown in the graph, there is no "phase" transition taking place. $ket(1","-1)$ is
     always the ground state. In this case however, the ground state doesnt exhibit SU(2) symmetry.
@@ -120,8 +121,111 @@
     #h(1.0em) This can also be expected as 
     again if we consider the staggered magnetism operator, $ket(0","0)$ is an antiferromagnetic state. That means that the state has equal spins in opposite directions.
     However the state $ket(1","-1)$ is ferromagnetic and has a preferred direction. This causes symmetry breaking.
-  ]
 ]
+=  Gentle introduction to entanglement: the singlet state
+
+#answer[
+ #set math.vec(delim: "[")
+ #set math.mat(delim: "[")
+  The singlet state is given as $ket(chi) = 1/2(ket(arrow.t arrow.b) - ket(arrow.b arrow.t))$. We will be using the Pauli-Matrix
+  representations. From $HH(2)$,a 2-dimensional hilbert space, the eigenstates of the $S_z$ are represented as
+
+  $ 
+    ket(arrow.t) = vec(1,0) quad quad ket(arrow.b) = vec(0,1)
+  $
+  For the two interacting spins, there are two independent 2-dimensional Hilbert spaces, so we know that $ket(arrow.t arrow.t) = ket(arrow.t) tc ket(arrow.t),ket(arrow.b arrow.b) = ket(arrow.b) tc ket(arrow.b)ket(arrow.t arrow.b) = ket(arrow.t) tc ket(arrow.b)$ and $ ket(arrow.b arrow.t) = 
+  ket(arrow.b) tc ket(arrow.t)$. So we represent all the direct product states
+  $ ket(arrow.t arrow.t) = vec(1,0) tc vec(1,0) = vec(1,0,0,0) #h(5em) ket(arrow.b arrow.b)= 
+  vec(0,1) tc vec(0,1) = vec(0,0,0,1) \
+
+ ket(arrow.t arrow.b) = vec(1,0) tc vec(0,1) = vec(0,1,0,0) #h(5em) ket(arrow.b arrow.t)= 
+  vec(0,1) tc vec(1,0) = vec(0,0,1,0) $
+  In the matrix representation , the singlet state is given as
+  $ ket(chi) = 1/sqrt(2) {vec(0,1,0,0)- vec(0,0,1,0)} = 1/sqrt(2) vec(0,1,-1,0) $
+
+  The density matrix representation of the singlet state is given as
+  $ rho = ketbra(chi,chi) = 1/2 vec(0,1,-1,0)(0,1,-1,0) = 1/2 mat(0,0,0,0;0,1,-1,0;0,-1,1,0;0,0,0,0) $
+]
+#answer[
+ #set math.mat(delim: "[")
+  The density matrix $rho in L(HH_1(2) tc HH_2(2))$ where $L(HH_1(2) tc HH_2(2))$ is the dual of the direct product 
+  space. The reduced density matrix elements defined as $rho_1 in L(HH_1(2))$ is given as 
+  $ bra(a) rho_1 ket(b) = sum_n [bra(a) tc bra(n) ]rho [ket(n) tc ket(b)] $
+  where $ket(a),ket(b)$ are the orthonormal eigenkets of $HH_1(2)$ and $ket(n)$ are the eigenstates
+  of $HH_2(2)$. Thus the matrix elements of $rho_1$ are given as
+  $ bra(arrow.t)rho_1 ket(arrow.t) = bra(arrow.t arrow.t)rho ket(arrow.t arrow.t) + bra(arrow.t arrow.b)rho ket(arrow.t arrow.b) = 1/2 
+   quad quad quad bra(arrow.t)rho_1 ket(arrow.b) = bra(arrow.t arrow.t)rho ket(arrow.b arrow.t) + bra(arrow.t arrow.b)rho ket(arrow.b arrow.b) = 0 \ 
+    bra(arrow.b)rho_1 ket(arrow.t) = bra(arrow.b arrow.t)rho ket(arrow.t arrow.t) + bra(arrow.b arrow.b)rho ket(arrow.t arrow.b) = 0 
+   quad quad quad bra(arrow.b)rho_1 ket(arrow.b) = bra(arrow.b arrow.t)rho ket(arrow.b arrow.t) + bra(arrow.b arrow.b)rho ket(arrow.b arrow.b) = 1/2
+$
+  The reduced density matrix is 
+  $ rho_1 = 1/2 mat(1,0;0,1) =  1/2 II $
+]
+#answer[
+  The eigenvalues of the reduced density matrix $rho_1$ are $lambda_1 = lambda_2 = 1/2$. Thus the Entanglement
+  Entropy(EE) of the first state 
+  $ S_1 = -Tr[rho_1 ln rho_1] = - sum_i lambda_i ln lambda_i = -2(1/2 ln 1/2) = ln 2 $
+  We have that the maximum EE of a two component system is $ln 2$. This tells us that the singlet spin state
+  is maximally entangled.
+]
+#answer[
+ #set math.mat(delim: "[")
+  We want to find the EE of the state $ket(chi(theta)) = cos(theta)ket(arrow.t arrow.b) + sin(theta)ket(arrow.b arrow.t)$ with the first
+  spin state. For this we need to the find the reduced density matrix over the second spin.
+  The density matrix is 
+  $ rho = mat(0,0,0,0;0,cos^2 theta, cos theta sin theta,0; 0,cos theta sin theta, cos^2 theta, 0;0,0,0,0)
+  $
+
+The reduced density matrix is given by $rho_1$
+  $ rho_1 = mat(cos^2 theta, 0; 0, sin^2 theta) $
+  We want to find the EE of this state. The eigenvalues of $rho_1$ are $lambda_1 = cos^2 theta, lambda_2 = sin^2 theta$. The 
+  entanglement Entropy (EE) is given as 
+  $ S_1(theta)= -sum_i lambda_i ln lambda_i = -cos^2 ln (cos^2 theta) - sin^2 ln(sin^2 theta) $
+  The graph of $S_1(theta)$ vs $theta$ to find states of maximal EE is given as 
+  #figure(image("s1.png", width: 120%), caption :[Entanglement Entropy vs $theta$])
+
+  The minimal EE is given as $theta = 0, pi/2 ,pi, (3pi)/2$ with $S_1 = 0$ where the corresponding states 
+  are not entangled.\
+  The maximal EE is given as $theta = pi/4, (3 pi)/4,(5 pi)/4 , (7 pi)/4$ with $S_1=ln 2$, where the corresponding
+  states are maximally entangled.
+
+  The states with minimal and maximal entanglement are
+#let vimg1 = {
+  figure(table(
+  columns: (auto,auto),
+
+  table.header[$theta$][States $S_1(theta) = 0quad$],
+  [$0$], [$ket(arrow.t arrow.b)$],
+  [$pi/2$], [$ket(arrow.b arrow.t)$],
+  [$pi$], [$-ket(arrow.t arrow.b)$],
+  [$(3 pi)/2$], [$-ket(arrow.t arrow.t)$],
+), caption: "Minimal entanglement states")
+
+    
+}
+#let vimg2 = {
+  figure(table(
+  columns: (auto,auto),
+
+  table.header[$theta$][States $S_1(theta) = ln 2 quad$],
+  [$pi/4$], [$ket(1","0)$],
+  [$(3 pi)/4$], [$-ket(0","0)$],
+  [$(5 pi)/4$], [$-ket(1","0)$],
+  [$(7 pi)/4$], [$ket(0","0)$],
+), caption: "Maximal entanglement states")
+    
+}
+
+#figure(
+    grid(
+        columns: 2,     // 2 means 2 auto-sized columns
+        gutter: 2mm,    // space between columns
+        vimg1,
+        vimg2,
+    ),
+)
+]
+
 
 
 
