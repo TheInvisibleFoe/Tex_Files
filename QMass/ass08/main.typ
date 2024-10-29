@@ -173,7 +173,7 @@ $
   We want to find the EE of the state $ket(chi(theta)) = cos(theta)ket(arrow.t arrow.b) + sin(theta)ket(arrow.b arrow.t)$ with the first
   spin state. For this we need to the find the reduced density matrix over the second spin.
   The density matrix is 
-  $ rho = mat(0,0,0,0;0,cos^2 theta, cos theta sin theta,0; 0,cos theta sin theta, cos^2 theta, 0;0,0,0,0)
+  $ rho = mat(0,0,0,0;0,cos^2 theta, cos theta sin theta,0; 0,cos theta sin theta, sin^2 theta, 0;0,0,0,0)
   $
 
 The reduced density matrix is given by $rho_1$
