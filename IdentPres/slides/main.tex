@@ -145,6 +145,8 @@
   And the diagonal elements are thus given as 
   $$Q_{xx} = -\sum_{x' \neq x} k_{xx'}$$
 
+  We also assume that the elements $k_{xx'}$ do not change with time.
+
   The change in probability of being in state $x$ at time $t$ is the \textbf{inflow} of probability from all other states
   which is $ k_{xx'}p(x';t)$ minus the \textbf{outflow} of probability  $k_{x'x}p(x;t)$.
   We can now write the master equation as
@@ -162,8 +164,8 @@
     studying birth and death processes, non-equilibrium statistical mechanics, chemical reactions, and a whole lot more. \\ 
 
     The most common one that we see is the one used here is of the form 
-    $$ \frac{d \bold{p}}{ dt} = \AA \bold{p} $$
-    where $\AA$ is the matrix of connections and $\bold{p}$ is the probability distribution column vector.
+    $$ \frac{d \bold{p}}{ dt} = \A \bold{p} $$
+    where $\A$ is the matrix of connections and $\bold{p}$ is the probability distribution column vector.
 \end{frame}
 \begin{frame}
   \frametitle{Probability Current}
@@ -222,7 +224,7 @@ with non-interacting components, which can be studied independently reducing to 
   
   The necessary condition for both to hold is that the probability of being in a state $x$ at time $t$ is independent of time.
   Thus, essentially our master equation equates to $0$.
-  $$\dv{p(x;t)}{t} = \sum_{x' \neq x} J_{xx'} = 0$$
+  $$\dv{p^{st}(x)}{t} = \sum_{x' \neq x} J_{xx'} = 0$$
 
   We will show that under certain conditions, the system relaxes to a stationary state.
   $$\lim_{t \to \infty} p(x;t) = p^{st}(x)$$
@@ -386,7 +388,7 @@ with non-interacting components, which can be studied independently reducing to 
   $Q$ is the transition rate matrix. Now we have 
   $$ (\PP - \mathbb{I})\pi = \PP \pi - \pi = \pi -\pi = 0 $$
   Thus the infinite time limit of the probability distribution is indeed the stationary distribution.
-  $$  \Rightarrow  \frac{d p(t)}{dt} = 0$$
+  $$  \Rightarrow  \frac{d \pi }{dt} = 0$$
 
   Now the stationary distribution must be unique since the Perron root of any irreducible 
   matrix has a one dimensional eigenspace. Thus the eigenvector must be unique due to 
