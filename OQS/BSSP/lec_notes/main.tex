@@ -1,0 +1,121 @@
+\documentclass{scrartcl}
+
+\usepackage[linear]{handout}
+
+\ihead{\sffamily\bfseries\footnotesize{Lecture Notes}}
+\ohead{\sffamily\footnotesize\textbf{BSSP 2021}}
+
+\title{
+        \Large\textsc{BSSP 2021} \\
+        \vspace{10pt}
+        % \Large\textsc{Experiment 02} \\
+        % \vspace{0.1cm}
+        \Huge \textbf{Introduction to Open Quantum Systems} \\
+}
+
+% \subtitle{}
+
+\author{Sabarno Saha \\ \texttt{22MS037}}
+
+\date{\normalsize
+        \textit{Indian Institute of Science Education and Research, Kolkata, \\
+        Mohanpur, West Bengal, 741246, India.}
+        % \vspace{10pt}
+        % \today
+}
+
+\graphicspath{{./images/}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak{}
+\section*{Course Outline}
+This is a collection of my notes on a series of five lectures delivered by Dr Manas Kulkarni for the Bangalore School on Statistical Physics-XII 2021.
+\begin{itemize}
+    \item Lecture 1
+    \begin{enumerate}
+        \item Motivation and General Construction of Open Quantum Systems
+        \item System Reservoir Approach
+    \end{enumerate}
+    \item Lecture 2
+    \begin{enumerate}
+        \item Quantum Master Equation(QME) : A general Setup
+        \item Application to damped harmonic oscillator
+    \end{enumerate}
+    \item Lecture 3
+    \begin{enumerate}
+        \item Quantum Langevin Equation(QLE)
+        \item Comparisons between QME and QLE
+        \item Transport through a system coupled to multiple reservoirs
+    \end{enumerate}
+    \item Lecture 4
+    \begin{enumerate}
+        \item Open two-level/Multi-level systems: Perturbative Approach and exact results
+        \item Jaynes-Cummings Model: Exact Solutions
+    \end{enumerate}
+    \item Lecture 5
+    \begin{enumerate}
+        \item Dicke Model and Quantum Phase transitions
+        \item Spectral Signatures in closed and open Dicke Model
+    \item Connections to Hermitian and Non-Hermitian Random Matrix Theory.
+    \end{enumerate}
+\end{itemize}
+There are also 3 tutorials accompanying the 5 lectures 
+\begin{itemize}
+    \item Tutorial 1
+    \begin{enumerate}
+        \item Density matrix Approach to quantum Mechanics
+        \item Quantum Mechanics of Composite Systems
+        \item Partial Traces and Reduced Density Matrices of Subsystems
+    \end{enumerate}
+    \item Tutorial 2
+    \begin{enumerate}
+        \item Numerical algorithm for the solution of the Driven Dissipative Jaynes-Cummings model.
+        \item Numerical implementation using MATLAB.
+    \end{enumerate}
+    \item Tutorial 3 (July 9, Friday, 2021)
+    \begin{enumerate}
+        \item Numerical algorithm for finding the spectrum of the Liouvillian of the dissipative Dicke model.
+        \item Numerical implementation using MATLAB.
+    \end{enumerate}
+
+\end{itemize}
+\pagebreak{}
+\section{Introduction}
+We want to deal with problems where we have a quantum system interacting with some "Reservoir/ Bath/ Environment". Most of the systems that we have dealt with so far were closed systems which were isolated to the outer environment. We now relax the isolation condition and open up the system to the environment. This gives rise to Open Quantum Systems.
+
+The subject aims to introduce the concept of dissipation and drive into quantum mechanics. If these elements are naively phenomenologically modeled and massaged into quantum mechanics, it might introduce inconsistencies in Heisenberg's Uncertainty Principle or the Commutation relations.
+
+A helpful reference is found at
+\subsection{Examples of Such Systems}
+\subsubsection{Damped Quantum Harmonic Oscillator}
+Most formal treatments of Quantum Mechanics use the quantum harmonic oscillator as the first toy model solved analytically. The damped harmonic oscillator is a toy example used here. This will be solved properly in Lecture 2. 
+
+This can be viewed as a single mode of an electromagnetic field in a lossy cavity (leaky cavity, cavity with imperfect mirrors). A nice solution can also be found at
+\subsubsection{Damped two level systems}
+These are two-level systems such as qubits that are subject to decay or dephasing due to its coupling to the environment
+\section{The system Reservoir approach}
+The aim here is to model the interaction between the system "S" and the environment "R" using a general Hamiltonian of the form
+\begin{equation}
+    H = H_S + H_R + H_{SR}
+\end{equation}
+where $H_S$ and $H_R$ is the Hamiltonian governing the evolution of the system and the reservoir respectively and $H_{SR}$ is the Hamiltonian governing the coupling between the system and the reservoir. In most cases, the evolution of the reservoir doesn't concern us and it can be specified using its properties like its temperature, energy, or the density of states. 
+
+The evolution of the system is out main concern now, rather than the whole system+reservoir $S \otimes R$. Let $\chi (t)$ be the density operator for the whole system $S\otimes R$. Thus the reduced density matrix for the system is given by taking a partial trace over the states in the Hilbert space of the reservoir. The Density Matrix approach to Quantum Mechanics is discussed later under the Section "Tutorial 2". The reduced density matrix is given by 
+\begin{equation}
+    \rho (t) = Tr_R[\chi (t)]
+\end{equation}
+where $\rho$ is the reduced density matrix over the system of interest, $Tr_R[]$ is the partial trace over the reservoir states and $\chi$ is the density operator for the system $S\otimes R$.
+\subsection{Liouville von-Neuman Equation}
+Let $\hat{O}$ be an operator acting on the Hilbert Space associated with the System S. Then the average of the operator can be computed its average in the Schroedinger Picture using the already known density matrix $\rho(t)$. Note that since $\hat{O}$ acts only on the Hilbert Space of S, $\hat{O} = \hat{O}_S \otimes \mathbb{I}_R$
+\begin{align}
+    \expval{\hat{O}} 
+\end{align}
+\section{Born and Markov Approximation}
+\subsection{Note on Markov Approximation and Reservoir correlations}
+\[
+\I
+\]
+\end{document}
+
