@@ -369,6 +369,13 @@ The last two equations are easily derived using the fact that
         \nbar(\omega_j,T) = \frac{\exp(-\frac{\hbar \omega_j}{k_B T})}{1- \exp(\frac{\hbar \omega_j}{k_B T})}
     \end{equation}
 \end{definition}
+The reservoir correlation functions involve summing over the harmonic oscillators in the bath. We change the summation 
+to an intergration to include the density of states of the reservoir. This is our way of encoding the 
+information of the reservoir in the problem. The density of states and the thermal density operator encode 
+all the information of the reservoir we need for the problem. Let the density of states(DoS)\(g(\omega)\) such that 
+\(g(\omega) d\omega\) gives the number of oscillators with frequencies in the range \(\omega\) and \(\omega + d\omega\). We can also 
+change use a change of variables to introduce the the time lag in correlations \(\tau = t-t'\)
+
 \subsection{The Lindblad Master Equation}
 \subsection{Detailed balance Condition}
 \subsection{Expectation values for Operators}
