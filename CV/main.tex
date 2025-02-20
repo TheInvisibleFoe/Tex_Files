@@ -1,0 +1,222 @@
+
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2022 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% adjust the page marginsbanking
+\usepackage[scale=0.80]{geometry}
+\setlength{\footskip}{136.00005pt}                 % depending on the amount of information in the footer, you need to change this value. comment this line out and set it to the size given in the warning
+\setlength{\hintscolumnwidth}{2.8cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% font loading
+% for luatex and xetex, do not use inputenc and fontenc
+% see https://tex.stackexchange.com/a/496643
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage[unicode]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue
+    }
+    \urlstyle{same}
+  \defaultfontfeatures{Ligatures=TeX}
+  \setmainfont{Latin Modern Roman}
+  \setsansfont{Latin Modern Sans}
+  \setmonofont{Latin Modern Mono}
+  \setmathfont{Latin Modern Math} 
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\fi
+
+% document language
+\usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
+
+% personal data
+\name{Sabarno}{Saha}
+\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\born{28 October 2004}                                 % optional, remove / comment the line if not wanted
+% \address{street and number}{postcode city}{country}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+91 98830~19398}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+% \phone[fixed]{+2~(345)~678~901}
+% \phone[fax]{+3~(456)~789~012}
+\email{ss22ms037@iiserkol.ac.in}                               % optional, remove / comment the line if not wanted
+\homepage{theinvisiblefoe.github.io}                         % optional, remove / comment the line if not wanted
+
+% % Social icons
+% \social[linkedin]{john.doe}                        % optional, remove / comment the line if not wanted
+% \social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
+% \social[twitter]{ji\_doe}                             % optional, remove / comment the line if not wanted
+\social[github]{TheInvisibleFoe}                              % optional, remove / comment the line if not wanted
+
+
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+% \photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% bibliography adjustments (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\section{Profile}
+\cvitem{}{I am a physics major, minoring in mathematics at the Indian Institute of Science Education and Research, Kolkata. Currently, I am currently reading about the driven dissipative Jaynes-Cummings Model used in Open Quantum Systems. I also like reading about random topics that I find interesting, like how microfluidics are used to create logic gates. }
+\section{Education}
+% \cventry{2022 -- Present}{Integrated BS-MS }{Indian Institute of Science Education and Research }{Kolkata}{Current CGPA: \textit{ 9.13/10}}{Semester 1: 9.21/10 \\ Semester 2: 8.83/10\\ Semester 3: 9.5/10\\ Semester 4: 9.04/10 }  % arguments 3 to 6 can be left empty
+\cventry{2022 -- Present}{Integrated BS-MS }{Indian Institute of Science Education and Research }{Kolkata}{Current CGPA: \textit{ 9.14/10}}{}
+\cventry{2022}{AISSCE}{Kalyani Central Model School}{Kalyani}{\textit{87.5 \%}}{}
+\cventry{2020}{ICSE}{Don Bosco School}{Bandel}{\textit{95 \%}}{}
+
+\section{Research Interests}
+\cvitem{}{ Open Quantum Systems,  Stochastic Thermodynamics, Stochastic Resetting,Statistical Mechanics, Active Matter}
+
+\section{Projects}
+% \cventry{Oct 2024- Present}{Stochastic Properties of Run and Tumble Particles}{\newline Supervisor: Dr. Rajesh Singh, IIT Madras}{\newline We are currently working on the stochastic properties of run and tumble particles}{}{}
+\cventry{Dec 2024 - Present}{Correlations of Brownian particles in Quasi-2D suspensions}{\newline Supervisor: Dr. Rajesh Singh, IIT Madras}{}{}{
+	\begin{itemize}
+		\item Learning Fluid mechanics and Microhydrodynamics.
+		\item Studying the transverse and longitudinal correlations of brownian particles in Quasi-2D fluids under a confined geometry with stokes-flow conditions.
+	\end{itemize}
+}
+\cventry{May - Dec 2024}{Bayesian Model Selection of Single Particle Tracking Models}{\newline Supervisor: Dr. Rajesh Singh, IIT Madras}{}{}{
+	\begin{itemize}
+		\item Learned about Stochastic Thermodynamics and Particle tracking models.
+		\item Worked on Bayesian model selection of some models, (OUP, AOUP, High friction generalization of Kramers' equation with measurement noise)
+		\item Worked on 1-D Run and Tumble Particles and their parameter estimation.
+	\end{itemize}
+}
+
+
+\section{Coursework}
+\cvitem{Current courses}{Basic Statistical Mechanics, Intermediate Electricity Magnetism, Advanced Quantum Mechanics, Electronics Laboratory, Computational Physics Lab, Statistics I, Topology}
+\cvitem{Completed Courses}{Mechanics I, Electricity and Magnetism, Analysis I \& II, Linear Algebra, Biophysics, Waves and Optics, Special Relativity, Mathematical Methods I \& II, Introduction to Python, Physics Laboratory (General Physics, Optics, Modern Physics), Probability - I, Thermal Physics, Basic Quantum Mechanics, Introduction to Computation, Classical Mechanics, Quantum Mechanics, Mathematical Methods in Physics, Electronics, Nuclear Physics Laboratory, Numerical Analysis, Multivariable Calculus}{}
+% \section{}
+% \cvitem{YDSE}{I coded a Young's Double slit interference experiment which simulates the experimentally known fringe pattern.}
+% \cvitem{Numerical Analysis}{I have coded numerical differentiators, numerical integrators(midpoint, trapezoidal, Simpsons ,monte-carlo  and Gauss) and numerical ODE Solvers(Runge Kutta, Euler-Runge Kutta)}
+% \cvitem{Random Walks}{I have coded random walks as a specific example of Markov Chains and plotted how they behave over a large number of walks.}
+% \cvitem{Finite Difference Method}{ I have coded a PDE solver using Finite Difference Methods which solves Laplace's Equation in 2D in Cartesian coordinates. }
+% \cvitem{Finite Volume Method}{ Currently I am learning and implementing simulation of a fluid using Finite Volume Method in a lid driven cavity}
+% \cvitem{\textbf{Nested Sampling}}{ I have implemented a version of Skilling's Nested Sampling Algorithm to compare Evidences for Models.}
+% \cvitem{\textbf{}}{ Currently I am learning and implementing simulation of a fluid using Finite Volume Method in a lid driven cavity}
+\section{Technical Skills}
+\cvitemwithcomment{ \textbf{Languages}}{Proficient in Python, Java}{}
+\cvitemwithcomment{}{Familiar with julia, Octave, Sage, Mathematica, R, MATLAB}{}
+\cvitemwithcomment{ \textbf{Packages}}{Numpy, Scipy, Matplotlib, Seaborn, Pandas, Sympy, PyMC, cython, numba, Qiskit}{}
+\cvitemwithcomment{ \textbf{Tools}}{Linux, Git, \LaTeX{} , Typst, Origin, Hugo}{}
+\cvitemwithcomment{ \textbf{Other Skills}}{Familiar with C\#(Unity), HTML and CSS}{}
+
+\section{Achievements}
+\cventry{2024}{Qiskit Fall Fest}{}{Certificate of Achievement}{}{}
+\cventry{2020 - Present}{National Talent Search Examination}{}{NTSE Scholar}{}{}{}
+\cventry{2022 - Present}{INSPIRE SHE}{}{Inspire Scholar}{}{}{}
+
+
+
+
+\section{Experience \& Talks}
+\cventry{Nov 2024}{Talk on Stochastic Thermodynamics}{Identity: The Maths Club of IISER Kolkata}{}{}{
+	\begin{itemize}
+		\item Gave a talk on conditions under which systems attain equilibrium using stochastic processes and jump networks.(Irreducibility and the Kolmogorov Loop Condition).
+	\end{itemize}
+}
+\cventry{2024 - present}{Core Committee Member}{Identity: The Maths club}{IISER Kolkata}{}{}
+\cventry{2024}{Organizing Committee Member}{Lexis: The Literary Fest}{IISER Kolkata}{}{
+	\begin{itemize}
+		\item Helped in organising SyFy(A Sci-Fi writing competition) and Event X.
+	\end{itemize}
+}
+\cventry{2023 -- present}{Core Committee Member}{Slashdot: Coding and Designing Club}{IISER Kolkata}{}{
+	\begin{itemize}
+		\item I  have helped conduct workshops about \LaTeX{} and the welearn-bot.
+	\end{itemize}}
+\cventry{2023 -- 2024}{Convener}{IISER Kolkata Quiz Club}{}{}{
+	\begin{itemize}
+		\item I Have conducted and helped conduct over 20 quizzes over 6-7 months in my tenure.
+		\item I Have brought in different quizmasters from all over India to conduct quizzes .
+	\end{itemize}}
+
+\section{Other Interests}
+\cvitem{\textbf{Coding}}{I enjoy coding quite a lot and have made a lot of projects over the years including Finite Dimensional methods to simulate electric fields, YDSE simulator, MCMC algorithms(Metropolis Hastings Algorithm), Skilling's Nested Sampling framework and some more. Most of my projects are on my \href{https://github.com/TheInvisibleFoe}{GitHub}.}
+
+\cvitem{\textbf{Quizzing}}{I enjoy quizzing and have participated in quizzes all over India over the past 9 years.}
+\cvitem{\textbf{Game-Dev}}{I have coded some small pixel art games using C\# in Unity and have a tiny bit of experience coding in Godot.}
+\cvitem{\textbf{Pixel Art}}{ I also like pixel art and have made some attempts at creating sprites using Aseprite and Krita.}
+\cvitem{\textbf{Blogging}}{I used to journal offline but now I have a blog up and running called Octopus' Garden hosted at my website where I try to write about stuff I find interesting.}
+
+
+
+% \section{Computer skills}
+% \cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+% \cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+% \cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+
+
+% \section{Extra 1}
+% \cvlistitem{Item 1}
+% \cvlistitem{Item 2}
+% \cvlistitem{Item 3. This item is particularly long and therefore normally spans several lines. Did you notice the indentation when the line wraps?}
+
+% \section{Extra 2}
+% \cvlistdoubleitem{Item 1}{Item 4}
+% \cvlistdoubleitem{Item 2}{Item 5\cite{book2}}
+% \cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+
+% \section{References}
+% \begin{cvcolumns}
+%   \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+%   \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+%   \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+% \end{cvcolumns}
+
+% % Publications from a BibTeX file without multibib
+% %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+% %  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+% \nocite{*}
+% \bibliographystyle{plain}
+% \bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% % Publications from a BibTeX file using the multibib package
+% %\section{Publications}
+% %\nocitebook{book1,book2}
+% %\bibliographystylebook{plain}
+% %\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+% %\nocitemisc{misc1,misc2,misc3}
+% %\bibliographystylemisc{plain}
+% %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+% \clearpage
+% %-----    
+\end{document}
+
+
+%% end of file `template.tex'.
+

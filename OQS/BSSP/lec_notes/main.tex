@@ -372,9 +372,36 @@ The last two equations are easily derived using the fact that
 The reservoir correlation functions involve summing over the harmonic oscillators in the bath. We change the summation
 to an intergration to include the density of states of the reservoir. This is our way of encoding the
 information of the reservoir in the problem. The density of states and the thermal density operator encode
-all the information of the reservoir we need for the problem. Let the density of states(DoS)\(g(\omega)\) such that
-\(g(\omega) d\omega\) gives the number of oscillators with frequencies in the range \(\omega\) and \(\omega + d\omega\). We can also
-change use a change of variables to introduce the the time lag in correlations \(\tau = t-t'\)
+all the information of the reservoir we need for the problem. Let the density of states(DoS)\(j(\omega)\) such that
+\(j(\omega) d\omega\) gives the number of oscillators with frequencies in the range \(\omega\) and \(\omega + d\omega\). We can also
+change use a change of variables to introduce the time lag in correlations \(\tau = t-t'\)
+Thus our non zero reservoir correlation functions can be written as
+\begin{align}
+	\expval{\iG^\dagger(t)\iG(t')}_R & = \int_0^\infty d\omega j(\omega) \abs{g(\omega)}^2 \exp(\frac{i}{\hbar} \omega \tau) \nbar(\omega,T) \label{eq: rescorr1}\\
+	\expval{\iG(t)\iG^\dagger(t')}_R & = \int_0^\infty d\omega j(\omega) \abs{g(\omega)}^2 \exp(-\frac{i}{\hbar} \omega \tau) (\nbar(\omega,T)+1)
+\end{align}
+Now the values of the integral depend on the coupling constants and the density of states of the reservoir. Let us define a new quantity called the spectral bath density
+defined as 
+\begin{equation}
+	J(\omega) = j(\omega) \abs{g(\omega)}^2	
+\end{equation}
+
+\begin{remark}
+	Need to write some comments on the spectral bath density.
+\end{remark}
+To make our calculations easier, we use an Ohmic Bath which corresponds to the bath spectral density being 
+\(J(\omega) = C \omega\). We now show explicit calculations using the Ohmic Bath for the reservoir correlation functions.
+Let us take a look at \cref{eq: rescorr1}. We can write the integral as
+\begin{align}
+	\expval{\iG^\dagger(t)\iG(t')}_R & = \int_0^\infty d\omega C \omega \exp(\frac{i}{\hbar} \omega \tau) \nbar(\omega,T) \\
+	& = C t_R^{-2} \psi'(1-i \tau / t_R)
+\end{align}
+where \(\psi'(z) = \frac{d^2 \ln \G (z)}{dz^2}\) is called the trigamma function. We have also defined \(t_R = \hbar \ k_B T\) which denotes the timescale corresponding
+to the reservoir. We have a relation that relates the real part of the trigamma function 
+to a hyperbolic cot so that we obtain our reservoir correlations.
+\begin{align}
+	\Re \qty(\psi'(1-i \tau / t_R)) & = \frac{\pi^2}{2} \qty[1-\coth^2\qty(\frac{\pi \tau}{2 t_R})] + 1/2 (\tau / t_R)^{-2}
+\end{align}
 
 \subsection{The Lindblad Master Equation}
 \subsection{Detailed balance Condition}
